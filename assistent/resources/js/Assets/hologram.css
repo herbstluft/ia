@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+  background: #040d1a;
+  font-family: 'Orbitron', sans-serif;
+  overflow: hidden;
+  color: #00f6ff;
+}
+
+.app {
+  background: rgba(0, 246, 255, 0.1);
+  border: 1px solid #00f6ff;
+  padding: 20px;
+  width: 160px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #00f6ff66;
+  transform: rotateY(var(--app-rot)) translateZ(0);
+  transition: transform 0.5s;
+  cursor: grab;
+  user-select: none;
+}
+
+.mic-hologram {
+  width: 120px;
+  height: 120px;
+  border: 2px solid #00f6ff;
+  border-radius: 50%;
+  box-shadow: 0 0 20px #00f6ff;
+  background: radial-gradient(circle, #00f6ff33 0%, #000000 70%);
+  animation: shimmer 3s infinite ease-in-out;
+  transition: transform 0.2s;
+}
+
+/* Solo agregamos clases dinámicas sin tocar tu diseño base */
+.listening {
+  animation: pulse 1s infinite ease-in-out;
+}
+
+.speaking {
+  animation: pulse 0.6s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  }
+  50% {
+    transform: scale(1.2);
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.8);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  }
+}
