@@ -1,0 +1,402 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden; /* Opcional: evita scroll si no lo necesitas */
+}
+
+.bg-app {
+--colors-bg--300: #1e181e;
+    --colors-bg--500: #191a1e;
+    --colors-primary--200: #f4908b;
+    --colors-primary--300: #ea6f69;
+    --colors-primary--500: #e8615a;
+    --colors-primary--600: #9c3230;
+    --colors-primary--700: #5e2122;
+    --colors-primary--800: #451717;
+    --colors-primary--900: #3c181a;
+    --colors-secondary--500: #2be4ea;
+    --colors-secondary--900: #295459;
+    --colors-tertiary--500: #fed33f;
+    --colors-on_bg--500: var(--colors-primary--500);
+    --colors-on_tertiary--500: var(--colors-bg--300);
+    --colors-on_primary--500: var(--colors-primary--200);
+    --colors-active--500: #2bfea0;
+    --fonts-primary: "Rajdhani", sans-serif;
+    --fonts-secondary: "VT323", monospace;
+    --ui-glow: 0 0 5px var(--colors-primary--500);
+    --ui-glow-borders--500: 0 0 3px var(--colors-primary--500);
+    --ui-glow-color: currentcolor;
+    --ui-glow-text: -9px -6px 40px var(--ui-glow-color);
+    --ui-glow-text--dimmed: -9px -6px 40px var(--ui-glow-color);
+    --ui-elevation--1: 2px 2px 0 rgba(0, 0, 0, 0.8);
+    --ui-notch-amount: 1rem;
+    --ui-notch-hypotenuse: 22.627416px;
+    --ui-notch-path: polygon(0 0, 100% 0, 100% calc(100% - var(--ui-notch-amount) + 2px), calc(100% - var(--ui-notch-amount) + 2px) 100%, 0 100%);
+    background-color: var(--colors-bg--500);
+    background-image: radial-gradient(ellipse at 33% 10%, #461616 0%, transparent 75%);
+    background-repeat: no-repeat;
+    color: var(--colors-on_bg--500);
+    font-family: var(--fonts-primary);
+    font-size: 100%;
+    line-height: 1.4;
+    margin: 0;
+    min-height: 100vh;
+
+
+  
+}
+
+
+/************************** Asistente **************************/
+.jarvis {  
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  color: #00aaff;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.mic-button {
+  background-color: #001f33;
+  color: #00aaff;
+  border: 2px solid #00aaff;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 2rem;
+}
+
+.mic-button:hover {
+  background-color: #003355;
+}
+
+/* Orb visual tipo Siri */
+.smart-orb {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.orb-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 10px #00aaff);
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+
+.smart-orb.active .orb-svg {
+  transform: scale(1.05);
+}
+
+.pulse {
+  fill: none;
+  stroke: #00aaff;
+  stroke-width: 4;
+  opacity: 0.6;
+  animation: pulse-ring 1.5s infinite ease-out;
+}
+
+@keyframes pulse-ring {
+  0% {
+    r: 80;
+    opacity: 1;
+  }
+  100% {
+    r: 100;
+    opacity: 0;
+  }
+}
+
+.wave {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 1;
+}
+
+
+
+.wave-container {
+  width: 100%;
+  max-width: 600px;
+  height: 200px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.wave {
+  width: 85%;
+  height: 100%;
+}
+
+.wave-path {
+  fill: none;
+  stroke: #00cfff;
+  stroke-width: 7;
+  animation: waveMotion 0.6s infinite ease-in-out;
+}
+
+@keyframes waveMotion {
+  0% {
+    d: path("M0,100 C150,50 450,150 600,100");
+  }
+  50% {
+    d: path("M0,100 C150,150 450,50 600,100");
+  }
+  100% {
+    d: path("M0,100 C150,50 450,150 600,100");
+  }
+}
+/************************** Asistente **************************/
+
+
+
+
+
+
+/************************** Botones Cyberpunk **************************/
+/* Estilos base para la tipografía cyberpunk */
+
+:root {
+  --color-primary-red: #E8615A;
+  --color-primary-blue: #37EBF3;
+  --color-bg-dark: #1e181e;
+  --color-bg-darker: #441618;
+  --color-bg-darkest: #892125;
+  --color-bg-cyan: #00eefa83;
+}
+
+/* Estilos base para botones cyberpunk */
+.cb-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.035rem;
+  color: var(--color-primary-red);
+  background-color: var(--color-bg-darkest);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+  
+  /* Clip path para el efecto de notch */
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    0 100%
+  );
+}
+
+/* Contenido del botón (necesario para el z-index) */
+.cb-button span {
+  position: relative;
+  z-index: 2;
+}
+
+/* Efecto de borde interno con notch */
+.cb-button::before {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  right: 1px;
+  bottom: 1px;
+  background-color: var(--color-bg-darker);
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    0 100%
+  );
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+/* Pequeña línea decorativa */
+.cb-button::after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 3px;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  background-color: transparent;
+  border: 1px solid var(--color-bg-darkest);
+  z-index: 3;
+  transition: all 0.3s ease;
+}
+
+/* Versión con notch en el lado opuesto */
+.cb-button.reverse {
+  clip-path: polygon(
+    100% 0,
+    100% 100%,
+    10px 100%,
+    0 calc(100% - 10px),
+    0 0
+  );
+}
+
+.cb-button.reverse::before {
+  clip-path: polygon(
+    100% 0,
+    100% 100%,
+    10px 100%,
+    0 calc(100% - 10px),
+    0 0
+  );
+}
+
+.cb-button.reverse::after {
+  left: auto;
+  right: 2px;
+}
+
+/* Efectos hover - IMPORTANTE: Corregido */
+.cb-button:hover {
+  color: var(--color-primary-blue);
+}
+
+.cb-button:hover::before {
+  background-color: var(--color-bg-cyan);
+  border: 1px solid var(--color-primary-blue);
+}
+
+.cb-button:hover::after {
+  border-color: var(--color-primary-blue);
+}
+
+/* Versión para pestañas/tabs - CORREGIDO */
+.cb-tab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  height: 40px;
+  min-width: 150px;
+  text-transform: uppercase;
+  letter-spacing: 0.035rem;
+  color: var(--color-primary-red);
+  background-color: #9C3230;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.3s ease;
+  clip-path: polygon(
+    3rem 0,
+    3.5rem 0.25rem,
+    100% 0.25rem,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    0 100%,
+    0 0
+  );
+}
+
+.cb-tab > div {
+  position: absolute;
+  padding-top: 3px;
+  top: 1px;
+  left: 1px;
+  right: 1px;
+  bottom: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg-dark);
+  clip-path: polygon(
+    3rem 0,
+    3.5rem 0.25rem,
+    100% 0.25rem,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    0 100%,
+    0 0
+  );
+  z-index: 1;
+}
+
+.cb-tab:hover,
+.cb-tab.active {
+  color: var(--color-primary-blue);
+}
+
+/* Hover CORREGIDO para tabs */
+.cb-tab:hover > div,
+.cb-tab.active > div {
+  background-color: var(--color-bg-cyan);
+  border: 1px solid var(--color-primary-blue);
+}
+
+
+/* 📱 Responsividad para botones */
+.cb-button {
+  font-size: clamp(14px, 2vw, 16px);
+  padding: 8px 16px;
+}
+
+@media (min-width: 640px) {
+  .cb-button {
+    padding: 10px 20px;
+  }
+}
+
+/* 📱 Responsividad para tabs */
+.cb-tab {
+  font-size: clamp(14px, 2vw, 16px);
+  min-width: 120px;
+  height: 36px;
+}
+
+@media (min-width: 640px) {
+  .cb-tab {
+    min-width: 150px;
+    height: 40px;
+  }
+}
+
+/* 📐 Layout responsivo para contenedor de tabs */
+.cb-tab-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  padding: 1rem;
+}
+
+
+/************************** Botones Cyberpunk **************************/
+
