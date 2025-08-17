@@ -5,7 +5,10 @@ import vue from '@vitejs/plugin-vue';
 export default defineConfig({
     plugins: [
         laravel({
-            input: 'resources/js/app.js',
+            input: [
+                'resources/js/app.js',
+                'index.html'
+            ],
             refresh: true,
         }),
         vue({
@@ -18,7 +21,11 @@ export default defineConfig({
         }),
     ],
     build: {
-        outDir: 'dist', // 👈 Netlify espera esta carpeta
+        outDir: 'dist',
         emptyOutDir: true,
+        manifest: true,
+        rollupOptions: {
+            input: 'index.html'
+        }
     },
 });
